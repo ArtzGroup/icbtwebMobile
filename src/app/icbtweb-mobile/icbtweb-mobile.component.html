@@ -1,0 +1,202 @@
+<section class="menuContentWrapper">
+
+    <section class="menuWrapper">
+
+        <nav id="nav" class="navWrapper" [ngClass]="[hamburgerChecked ? 'mainMenuMinimize' : 'mainMenuMaximize']">
+
+            <section class="logoSection">
+                <!-- <input type="checkbox" id="hamburger" />
+            <label class="label" for="hamburger" (click)="minimizeMenu()"></label> -->
+                <img *ngIf="hamburgerChecked" (click)="closeMenu()" src="../../assets/icons/modal_close.svg"
+                    alt="menu close button">
+                <img *ngIf="!hamburgerChecked" src="../../assets/logo.svg" alt="AbilitiCBT Logo">
+            </section>
+
+            <nav *ngIf="!hamburgerChecked" class="navItems">
+                <a (click)="openLibraryMenu()" class="navItemsSections librarySection">
+                    <span class="iconBackground">
+                        <svg class="menuItemLogo" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 6.18182C12 4.42364 16.68 3 22 3V18C16.68 18 12 19.4236 12 21.1818C12 19.4236 7.31909 18 2 18V3C7.31909 3 12 4.42364 12 6.18182Z"
+                                stroke="#28E6E1" stroke-width="0.833333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 6.1817V21.0681" stroke="#28E6E1" stroke-width="0.833333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M9.72745 8.21834C8.26381 7.65743 6.19381 7.25197 3.81836 7.09106" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.72745 10.9456C8.26381 10.3847 6.19381 9.97921 3.81836 9.8183" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.72745 13.6729C8.26381 13.112 6.19381 12.7065 3.81836 12.5456" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.72745 16.4001C8.26381 15.8392 6.19381 15.4337 3.81836 15.2728" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 8.21834C15.7361 7.65743 17.8061 7.25197 20.1816 7.09106" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 10.9456C15.7361 10.3847 17.8061 9.97921 20.1816 9.8183" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 13.6729C15.7361 13.112 17.8061 12.7065 20.1816 12.5456" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 16.4001C15.7361 15.8392 17.8061 15.4337 20.1816 15.2728" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <label class="menuItemText">Library</label>
+                    <span class="menuItemRight librarySectionRightArrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.27951 4.00003L17 12L8.27951 20" stroke="#fff" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </a>
+
+                <label class="mainMenuLabel">Main Menu</label>
+
+                <a (click)="gotoDashboard()" class="navItemsSections mainMenuSection">
+                    <span class="iconBackground">
+                        <svg class="menuItemLogo" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.60864 12.4348V21.1304H9.82603V15.0434H14.1739V21.1304H19.3913V12.8695"
+                                stroke="#28E6E1" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12L12 2L22 12" stroke="#28E6E1" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M15.4783 2.86957H18.5217V5.91305" stroke="#28E6E1" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <label class="menuItemText">Home</label>
+                </a>
+
+                <label class="activeModuleLabel">My Active Module</label>
+
+                <a (click)="gotoActiveModule()" class="navItemsSections activeModuleSection">
+                    <span class="iconBackground">
+                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-inside-1" fill="white">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M3 0C1.34315 0 0 1.34314 0 3V11.1872C0 12.844 1.34315 14.1872 3 14.1872H13.399L20 7.0936L13.399 0H3Z" />
+                            </mask>
+                            <path
+                                d="M13.399 14.1872V15.1872H13.8345L14.1311 14.8684L13.399 14.1872ZM20 7.0936L20.7321 7.77483L21.366 7.0936L20.7321 6.41237L20 7.0936ZM13.399 0L14.1311 -0.681231L13.8345 -1H13.399V0ZM1 3C1 1.89543 1.89543 1 3 1V-1C0.790861 -1 -1 0.790859 -1 3H1ZM1 11.1872V3H-1V11.1872H1ZM3 13.1872C1.89543 13.1872 1 12.2918 1 11.1872H-1C-1 13.3963 0.79086 15.1872 3 15.1872V13.1872ZM13.399 13.1872H3V15.1872H13.399V13.1872ZM19.2679 6.41237L12.6669 13.506L14.1311 14.8684L20.7321 7.77483L19.2679 6.41237ZM12.6669 0.681231L19.2679 7.77483L20.7321 6.41237L14.1311 -0.681231L12.6669 0.681231ZM3 1H13.399V-1H3V1Z"
+                                fill="#28E6E1" mask="url(#path-1-inside-1)" />
+                        </svg>
+                    </span>
+                    <label class="menuItemText">5 - The Link between Thoughts and Feelings</label>
+                </a>
+
+                <label class="generalSectionLabel">General</label>
+
+                <a (click)="gotoMessageSection()" class="navItemsSections generalSection">
+                    <span class="iconBackground">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M22 17.9048C22 18.6933 21.36 19.3333 20.5714 19.3333H3.42857C2.64 19.3333 2 18.6933 2 17.9048V7.42857C2 6.63905 2.64 6 3.42857 6H20.5714C21.36 6 22 6.63905 22 7.42857V17.9048Z"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21.5238 6.47617L12 14.0952L2.4762 6.47617" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+
+
+                    <label class="menuItemText">Messages</label>
+
+                </a>
+            </nav>
+
+            <nav *ngIf="hamburgerChecked" class="mobileNavItems">
+                <a (click)="openLibraryMenu()" class="navItemsSections librarySection">
+                    <!-- <span class="border-bottom"></span> -->
+                    <span class="iconBackground">
+                        <svg class="menuItemLogo" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 6.18182C12 4.42364 16.68 3 22 3V18C16.68 18 12 19.4236 12 21.1818C12 19.4236 7.31909 18 2 18V3C7.31909 3 12 4.42364 12 6.18182Z"
+                                stroke="#28E6E1" stroke-width="0.833333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 6.1817V21.0681" stroke="#28E6E1" stroke-width="0.833333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M9.72745 8.21834C8.26381 7.65743 6.19381 7.25197 3.81836 7.09106" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.72745 10.9456C8.26381 10.3847 6.19381 9.97921 3.81836 9.8183" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.72745 13.6729C8.26381 13.112 6.19381 12.7065 3.81836 12.5456" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.72745 16.4001C8.26381 15.8392 6.19381 15.4337 3.81836 15.2728" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 8.21834C15.7361 7.65743 17.8061 7.25197 20.1816 7.09106" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 10.9456C15.7361 10.3847 17.8061 9.97921 20.1816 9.8183" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 13.6729C15.7361 13.112 17.8061 12.7065 20.1816 12.5456" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.2725 16.4001C15.7361 15.8392 17.8061 15.4337 20.1816 15.2728" stroke="#28E6E1"
+                                stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <!-- <span class="border-bottom"></span> -->
+                </a>
+
+                <a (click)="gotoDashboard()" class="navItemsSections mainMenuSection">
+                    <span class="iconBackground">
+                        <svg class="menuItemLogo" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.60864 12.4348V21.1304H9.82603V15.0434H14.1739V21.1304H19.3913V12.8695"
+                                stroke="#28E6E1" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12L12 2L22 12" stroke="#28E6E1" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M15.4783 2.86957H18.5217V5.91305" stroke="#28E6E1" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <!-- <span class="border-bottom"></span> -->
+                </a>
+
+                <a (click)="gotoActiveModule()" class="navItemsSections">
+                    <span class="iconBackground">
+                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-inside-1" fill="white">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M3 0C1.34315 0 0 1.34314 0 3V11.1872C0 12.844 1.34315 14.1872 3 14.1872H13.399L20 7.0936L13.399 0H3Z" />
+                            </mask>
+                            <path
+                                d="M13.399 14.1872V15.1872H13.8345L14.1311 14.8684L13.399 14.1872ZM20 7.0936L20.7321 7.77483L21.366 7.0936L20.7321 6.41237L20 7.0936ZM13.399 0L14.1311 -0.681231L13.8345 -1H13.399V0ZM1 3C1 1.89543 1.89543 1 3 1V-1C0.790861 -1 -1 0.790859 -1 3H1ZM1 11.1872V3H-1V11.1872H1ZM3 13.1872C1.89543 13.1872 1 12.2918 1 11.1872H-1C-1 13.3963 0.79086 15.1872 3 15.1872V13.1872ZM13.399 13.1872H3V15.1872H13.399V13.1872ZM19.2679 6.41237L12.6669 13.506L14.1311 14.8684L20.7321 7.77483L19.2679 6.41237ZM12.6669 0.681231L19.2679 7.77483L20.7321 6.41237L14.1311 -0.681231L12.6669 0.681231ZM3 1H13.399V-1H3V1Z"
+                                fill="#28E6E1" mask="url(#path-1-inside-1)" />
+                        </svg>
+                    </span>
+                    <!-- <span class="border-bottom"></span> -->
+                </a>
+
+                <a (click)="gotoMessageSection()" class="navItemsSections generalSection">
+                    <span class="iconBackground">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M22 17.9048C22 18.6933 21.36 19.3333 20.5714 19.3333H3.42857C2.64 19.3333 2 18.6933 2 17.9048V7.42857C2 6.63905 2.64 6 3.42857 6H20.5714C21.36 6 22 6.63905 22 7.42857V17.9048Z"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21.5238 6.47617L12 14.0952L2.4762 6.47617" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <!-- <span class="border-bottom"></span> -->
+
+                </a>
+            </nav>
+
+            <section class="navFooterItems">
+
+
+            </section>
+        </nav>
+
+        <div class="menublock"></div>
+
+        <nav class="libraryMenuSection" *ngIf="libraryMenuOpen" [ngClass]="{'libraryMenuOpen': libraryMenuOpen}">
+
+        </nav>
+
+    </section>
+
+    <section class="mainContent">
+        <app-main-content></app-main-content>
+    </section>
+
+</section>

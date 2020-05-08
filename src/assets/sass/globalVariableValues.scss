@@ -1,0 +1,26 @@
+$vars: (wholeSectionArea: "sideMenuNav mainContent",
+  brand-color-1: #00308F,
+  brand-color-2: #446FC8,
+  brand-color-3: #28E6E1,
+  brand-color-4: #F5F8FF,
+  text-color: #313235,
+  text-color__light: #ffffff,
+  buttonColor: var(brand-color-1),
+  buttonColor__hover: #446FC8,
+  buttonTextColor: var(brand-color-3),
+  buttonTextColor__hover: #F5F8FF,
+  plum-primary: #AA0959,
+  grey-medium: #C2C5CC,
+  grey-dark-2: #5A5C5F,
+  greyscale-dark-2: #5A5C5F,
+  grey-shade-1: #78746E,
+  grey-shade-5: #353431,
+  blue-tint-5: #004DE6,
+  blue-tint-4: #3D6ECF,
+);
+
+
+@mixin var($property, $varName) {
+  #{$property}: map-get($vars, $varName);
+  #{$property}: var(--#{$varName}, map-get($vars, $varName));
+}

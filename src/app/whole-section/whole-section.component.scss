@@ -1,0 +1,24 @@
+@import '../../assets/sass/globalVariableValues.scss';
+
+.contentWrapper {
+  display: flex;
+  @include var(background-color, brand-color-1);
+
+  // grid-template-columns: 20vw 80vw;
+  // @include var(grid-template-areas, wholeSectionArea);
+
+  // .sideMenuNav {
+  //   grid-area: sideMenuNav;
+  //   // position: absolute;
+  //   // left: 0;
+  //   height: 100%;
+  //   @include var(background-color, brand-color-1);
+  // }
+
+  .mainContent {
+    grid-area: mainContent;
+    // position: absolute;
+    // left: 20vw;
+    height: 100%;
+  }
+}

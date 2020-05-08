@@ -1,0 +1,194 @@
+@import '../../assets/sass/globalVariableValues.scss';
+@import '../../assets/mixins.scss';
+
+@include media(600) {
+  .label {
+    transition: 0.2s ease-out;
+    // background: url('../../assets/icons/hamburger.svg') right top no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 24px;
+    width: 31px;
+  }
+
+  .menuWrapper {
+    min-height: 100vh;
+    height: 100%;
+    width: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: 0.1s linear;
+
+
+    &.menuMaximize {
+      display: grid;
+      grid-template-columns: 1.667vw 1.667vw 1.667vw 12.22vw 1.112vw 1.667vw;
+      grid-template-rows: minmax(62px, 5.89vh) auto minmax(17px, 1.6vh) auto minmax(17px, 1.6vh) auto minmax(17px, 1.6vh) auto 21vh 19px;
+      grid-template-areas:
+        ". abilitiCBTLogo abilitiCBTLogo abilitiCBTLogo abilitiCBTLogo ."
+        ". mobileNav . desktopNav  desktopNav ."
+      ;
+      width: 20vw;
+
+      .logoSection {
+        grid-area: abilitiCBTLogo;
+        align-self: end;
+
+        .closeLabel {
+          display: none;
+
+        }
+      }
+
+      .mobileNav,
+      .desktopNav {
+        .navItemsSections {
+          @include var(color, text-color__light);
+          cursor: pointer;
+          position: relative;
+
+          label {
+            cursor: pointer;
+          }
+
+          span {
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            left: -6px;
+            top: -6px;
+            z-index: -1;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 28px;
+            cursor: pointer;
+
+          }
+
+          &:hover {
+            span {
+              background-color: #275DC8 !important;
+            }
+          }
+
+          .onHover {
+            background-color: #275DC8 !important;
+          }
+
+        }
+
+      }
+
+      .mobileNav {
+        grid-area: mobileNav;
+        // width: 5vw;
+        display: grid;
+        align-items: center;
+        grid-template-areas:
+          "libraryLogoSection"
+          "homeSection";
+
+
+        .libraryLogoSection {
+          grid-area: libraryLogoSection;
+        }
+
+        .homeSection {
+          grid-area: homeSection;
+        }
+      }
+
+      .desktopNav {
+        grid-area: desktopNav;
+        display: grid;
+        // width: 15vw;
+        align-items: center;
+
+
+        .libraryTextSection {
+          display: grid;
+          align-items: center;
+          grid-template-columns: auto 1.112vw;
+          grid-template-areas:
+            "libraryTextSection rightArrow";
+
+          label {
+            grid-area: libraryTextSection;
+          }
+
+          span {
+            grid-area: rightArrow;
+          }
+        }
+
+
+      }
+
+      .mainMenuLabel {
+        grid-area: mainMenuLabel;
+        grid-column: 2/6;
+        grid-row: 3/4;
+      }
+    }
+
+    &.menuMinimize {
+      display: grid;
+      grid-template-columns: 1.667vw 1.667vw 1.667vw;
+      grid-template-rows: 60px auto auto;
+      grid-template-areas:
+        "logoSection logoSection logoSection"
+        "mobileNav mobileNav mobileNav";
+      width: 5vw;
+
+      .logoSection {
+        grid-area: logoSection;
+      }
+
+      .mobileNav {
+        grid-area: mobileNav;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-areas:
+          ". libraryLogoSection ."
+          ". libraryLogoSection .";
+
+        .libraryLogoSection {
+          grid-area: libraryLogoSection;
+        }
+      }
+
+    }
+
+  }
+
+  .libraryMenuSection {
+    position: fixed;
+    top: 0;
+    left: 5vw;
+    height: 100%;
+    min-height: 100vh;
+    width: 0;
+    @include var(background-color, brand-color-4);
+    box-shadow: 1px 1px 5.88636px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    border-top-left-radius: 28% 18%;
+    border-bottom-right-radius: 120px;
+    transition: 0.2s linear;
+
+    &.libraryMenuOpen {
+      display: block;
+      width: 20vw;
+    }
+
+  }
+}
+
+
+@include mediaMax(600) {
+  .menuWrapper {
+    display: none;
+  }
+}

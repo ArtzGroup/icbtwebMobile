@@ -1,0 +1,376 @@
+@import '../../assets/sass/globalVariableValues.scss';
+@import '../../assets/mixins.scss';
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  display: none;
+
+  &:checked+.label {
+    background: url('../../assets/icons/modal_close.svg') right top no-repeat;
+  }
+}
+
+.label {
+  transition: 0.2s ease-out;
+  background: url('../../assets/icons/hamburger.svg') right top no-repeat;
+  cursor: pointer;
+  display: block;
+  height: 24px;
+  width: 31px;
+}
+
+.menuContentWrapper {
+  display: flex;
+
+
+  .menuWrapper {
+    display: flex;
+    width: auto;
+    max-width: 22.5vw;
+
+    .navWrapper {
+      &.mainMenuMaximize {
+        height: 100vh;
+        background-color: #00308f;
+        width: 18.333vw;
+        transition: 0.1s linear;
+        z-index: 999;
+        display: grid;
+        grid-template-columns: 1.667vw auto auto 1.667vw;
+        grid-template-rows: 80px auto auto 10px;
+        grid-template-areas:
+          ". abilitiCBTLogo abilitiCBTLogo ."
+          ". menuItems menuItems menuItems"
+          ". footerItems footerItems .";
+
+        .logoSection {
+          grid-area: abilitiCBTLogo;
+          align-self: center;
+          padding: 10px 0 10px 8px;
+          display: grid;
+          grid-template-columns: 46px auto;
+          align-items: center;
+          cursor: pointer;
+
+
+          .showLogo {
+            display: block;
+          }
+
+          .hideLogo {
+            display: none;
+          }
+        }
+
+        .navItems {
+          grid-area: menuItems;
+          display: grid;
+          grid-template-columns: auto;
+          grid-template-rows: 46px 20px 46px 20px auto 20px auto;
+          //   grid-template-rows: repeat(7, minmax(20px, auto));
+          grid-gap: 16px;
+          grid-template-areas:
+            "librarySection"
+            "mainMenuLabel"
+            "mainMenuSection"
+            "activeModuleLabel"
+            "activeModuleSection"
+            "generalSectionLabel"
+            "generalSection";
+
+          a {
+            @include var(color, text-color__light);
+            cursor: pointer;
+
+            .iconBackground {
+              width: 36px;
+              height: 36px;
+              background-color: transparent;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            &:hover {
+              .iconBackground {
+                background-color: #275DC8 !important;
+                border-radius: 28px;
+              }
+
+              .librarySectionRightArrow {
+                background-color: transparent !important;
+
+              }
+            }
+
+            &:visited {
+              .iconBackground {
+                background-color: red !important;
+                border-radius: 28px;
+              }
+
+            }
+          }
+
+          .mainMenuLabel,
+          .activeModuleLabel,
+          .generalSectionLabel {
+            color: #E4E5E7;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-left: 6px;
+          }
+
+          .mainMenuLabel {
+            grid-area: mainMenuLabel;
+          }
+
+          .activeModuleLabel {
+            grid-area: activeModuleLabel;
+          }
+
+          .generalSectionLabel {
+            grid-area: generalSectionLabel;
+          }
+
+          .navItemsSections {
+            display: grid;
+            grid-template-columns: 32px 100px auto 32px;
+            grid-template-rows: auto;
+            cursor: pointer;
+            align-items: center;
+            grid-template-areas:
+              "menuItemLogo menuItemText menuItemText menuItemRight";
+
+            label {
+              cursor: pointer;
+
+            }
+
+            .menuItemLogo {
+              grid-area: menuItemLogo;
+            }
+
+            .menuItemText {
+              grid-area: menuItemText;
+              font-size: 16px;
+              margin-left: 20px;
+            }
+
+            .menuItemRight {
+              grid-area: menuItemRight;
+            }
+          }
+
+
+          .librarySection {
+            grid-area: librarySection;
+
+            .libraryLogo {}
+
+            .librarySectionRightArrow {}
+          }
+
+          .mainMenuSection {
+            grid-area: mainMenuSection;
+            align-self: start;
+
+            .homeLogo {}
+          }
+
+          .activeModuleSection {
+            grid-area: activeModuleSection;
+            align-self: start;
+            grid-template-areas: "menuItemLogo menuItemText menuItemText menuItemText";
+
+            .activeModuleLogo {}
+          }
+
+          .generalSection {
+            grid-area: generalSection;
+            align-self: start;
+
+            svg {
+              stroke: #28E6E1;
+            }
+          }
+
+        }
+
+        .navFooterItems {
+          grid-area: footerItems;
+        }
+
+        +.menublock {
+          width: 48px;
+          height: 80px;
+          z-index: 999;
+          position: absolute;
+          left: 18.333vw;
+          transition: 0.1s linear;
+          background: url("../../assets/Anchor.svg");
+        }
+
+      }
+
+      &.mainMenuMinimize {
+        height: 100vh;
+        background-color: #00308f;
+        width: 4.166vw;
+        z-index: 999;
+        transition: 0.1s linear;
+        display: grid;
+        grid-template-columns: repeat(3, 1.388vw);
+        grid-template-areas:
+          "closeImg closeImg closeImg"
+          "menuItems menuItems menuItems";
+
+        .logoSection {
+          grid-area: closeImg;
+          align-self: center;
+          justify-self: center;
+          cursor: pointer;
+        }
+
+        .mobileNavItems {
+          grid-area: menuItems;
+          display: grid;
+          grid-template-columns: auto;
+          grid-template-rows: repeat(5, 9.829vh);
+          //   grid-template-rows: repeat(7, minmax(20px, auto));
+          grid-gap: 16px;
+          grid-template-areas:
+            "librarySection"
+            "mainMenuSection"
+            "activeModuleSection"
+            "generalSection";
+
+          a {
+            @include var(color, text-color__light);
+            cursor: pointer;
+
+            .iconBackground {
+              width: 36px;
+              height: 36px;
+              padding: 6px;
+              background-color: transparent;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            &:hover {
+              .iconBackground {
+                background-color: #275DC8 !important;
+                border-radius: 28px;
+              }
+            }
+
+            &:visited {
+              .iconBackground {
+                background-color: red !important;
+              }
+
+            }
+          }
+
+          .border-bottom {
+            height: 1px;
+            width: 96%;
+            margin: 3.969vh 0;
+            display: flex;
+            align-self: center;
+            background-color: #275DC8;
+          }
+
+          .navItemsSections {
+            display: grid;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+
+            label {
+              cursor: pointer;
+            }
+
+            .menuItemLogo {
+              grid-area: menuItemLogo;
+            }
+
+          }
+
+
+          .librarySection {
+            grid-area: librarySection;
+          }
+
+          .mainMenuSection {
+            grid-area: mainMenuSection;
+
+            .homeLogo {}
+          }
+
+          .activeModuleSection {
+            grid-area: activeModuleSection;
+            align-self: start;
+            grid-template-areas: "menuItemLogo menuItemText menuItemText menuItemText";
+
+            .activeModuleLogo {}
+          }
+
+          .generalSection {
+            grid-area: generalSection;
+
+            svg {
+              stroke: #28E6E1;
+            }
+          }
+
+        }
+
+        .navFooterItems {
+          grid-area: footerItems;
+        }
+
+        +.menublock {
+          width: 48px;
+          height: 80px;
+          z-index: 999;
+          position: absolute;
+          left: 4.166vw;
+          background: url("../../assets/Anchor.svg");
+        }
+      }
+    }
+
+
+
+    //Library Menu
+
+    .libraryMenuSection {
+      height: 100vh;
+      width: 0px;
+      background: #F5F8FF;
+      box-shadow: 1px 1px 5.88636px rgba(0, 0, 0, 0.25);
+      border-bottom-right-radius: 120px;
+      transition: 0.1s linear;
+      z-index: 1;
+
+      &.libraryMenuOpen {
+        display: block;
+        width: 20.833vw;
+      }
+
+    }
+
+
+  }
+
+  .mainContent {}
+}
