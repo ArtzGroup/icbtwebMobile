@@ -1,8 +1,8 @@
 <section class="menuContentWrapper">
 
-    <section class="menuWrapper">
+    <section class="menuWrapper" [ngClass]="[forHoverEffect ? 'onMenuHover' : '']">
 
-        <nav id="nav" class="navWrapper" [ngClass]="[hamburgerChecked ? 'mainMenuMinimize' : 'mainMenuMaximize']">
+        <nav class="navWrapper" [ngClass]="[hamburgerChecked ? 'mainMenuMinimize' : 'mainMenuMaximize']">
 
             <section class="logoSection">
                 <!-- <input type="checkbox" id="hamburger" />
@@ -103,7 +103,8 @@
                 </a>
             </nav>
 
-            <nav *ngIf="hamburgerChecked" class="mobileNavItems">
+            <nav *ngIf="hamburgerChecked" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
+                class="mobileNavItems">
                 <a (click)="openLibraryMenu()" class="navItemsSections librarySection">
                     <!-- <span class="border-bottom"></span> -->
                     <span class="iconBackground">
@@ -189,14 +190,15 @@
 
         <div class="menublock"></div>
 
-        <nav class="libraryMenuSection" *ngIf="libraryMenuOpen" [ngClass]="{'libraryMenuOpen': libraryMenuOpen}">
+    </section>
 
-        </nav>
+    <section class="libraryMenuSection">
+        <app-dashboard-header [libraryMenuOpen]="libraryMenuOpen"></app-dashboard-header>
 
     </section>
 
     <section class="mainContent">
-        <app-main-content></app-main-content>
+        <router-outlet></router-outlet>
     </section>
 
 </section>

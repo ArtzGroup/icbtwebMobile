@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-icbtweb-mobile',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class IcbtwebMobileComponent implements OnInit {
   libraryMenuOpen: boolean = false;
   hamburgerChecked: boolean = false;
+  forHoverEffect: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     if (this.libraryMenuOpen == true) {
@@ -31,27 +33,47 @@ export class IcbtwebMobileComponent implements OnInit {
 
   openLibraryMenu() {
     this.hamburgerChecked = true;
-
     this.libraryMenuOpen = true;
   }
 
   gotoDashboard() {
-    this.hamburgerChecked = true;
+    this.hamburgerChecked = false;
     this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
+    this.router.navigate(['/home']);
   }
 
   gotoActiveModule() {
-    this.hamburgerChecked = true;
+    this.hamburgerChecked = false;
     this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
+    this.router.navigate(['/activeModule']);
   }
 
   gotoMessageSection() {
-    this.hamburgerChecked = true;
+    this.hamburgerChecked = false;
     this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
   }
 
   closeMenu() {
     this.hamburgerChecked = false;
     this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
+  }
+
+  mouseEnter() {
+    if (this.forHoverEffect == false && this.hamburgerChecked == true) {
+      this.hamburgerChecked = false;
+      this.forHoverEffect = true;
+    }
+  }
+
+  mouseLeave() {
+    if (this.forHoverEffect == true) {
+      this.hamburgerChecked = true;
+      this.forHoverEffect = false;
+    }
+    console.log(this.hamburgerChecked);
   }
 }

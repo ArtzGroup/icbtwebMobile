@@ -1,0 +1,26 @@
+.libraryMenuNav {
+  height: 100vh;
+  width: 0px;
+  background: #F5F8FF;
+  box-shadow: 1px 1px 5.88636px rgba(0, 0, 0, 0.25);
+  border-bottom-right-radius: 120px;
+  transition: 0.1s linear;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.112vw auto 1.112vw;
+  grid-template-rows: 6.805vh auto auto 6.805vh;
+  grid-template-areas:
+    ". . ."
+    ". libraryMenu ."
+    ". libraryMenu ."
+    ". . .";
+
+  &.libraryMenuOpen {
+    width: 20.833vw;
+    position: fixed;
+    top: 0;
+    left: 4.166vw;
+    transition: 0.1s linear;
+  }
+
+}
