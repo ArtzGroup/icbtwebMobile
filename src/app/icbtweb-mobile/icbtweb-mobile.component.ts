@@ -70,10 +70,10 @@ export class IcbtwebMobileComponent implements OnInit {
   }
 
   mouseLeave() {
-    if (this.forHoverEffect == true) {
+    if (this.forHoverEffect == true && this.hamburgerChecked == false) {
       this.hamburgerChecked = true;
       this.forHoverEffect = false;
+      console.log(this.hamburgerChecked);
     }
-    console.log(this.hamburgerChecked);
   }
 }

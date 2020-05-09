@@ -7,12 +7,20 @@ import { IcbtwebMobileComponent } from './icbtweb-mobile/icbtweb-mobile.componen
 import { FormsModule } from '@angular/forms';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { MainContentComponent } from './main-content/main-content.component';
-import { WholeSectionComponent } from './whole-section/whole-section.component';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { MenuComponent } from './menu/menu.component';
+import { LibrarySectionComponent } from './library-section/library-section.component';
 
 @NgModule({
-  declarations: [AppComponent, IcbtwebMobileComponent, SideMenuComponent, MainContentComponent, WholeSectionComponent, DashboardHeaderComponent, MenuComponent],
+  declarations: [
+    AppComponent,
+    IcbtwebMobileComponent,
+    SideMenuComponent,
+    MainContentComponent,
+    DashboardHeaderComponent,
+    MenuComponent,
+    LibrarySectionComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

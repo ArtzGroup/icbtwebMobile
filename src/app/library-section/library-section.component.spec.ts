@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WholeSectionComponent } from './whole-section.component';
+import { LibrarySectionComponent } from './library-section.component';
 
-describe('WholeSectionComponent', () => {
-  let component: WholeSectionComponent;
-  let fixture: ComponentFixture<WholeSectionComponent>;
+describe('LibrarySectionComponent', () => {
+  let component: LibrarySectionComponent;
+  let fixture: ComponentFixture<LibrarySectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WholeSectionComponent ]
+      declarations: [ LibrarySectionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WholeSectionComponent);
+    fixture = TestBed.createComponent(LibrarySectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

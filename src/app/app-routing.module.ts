@@ -6,6 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 const routes: Routes = [
   { path: 'home', component: MainContentComponent },
   { path: 'activeModule', component: MenuComponent },
+  { path: 'menu', component: MenuComponent },
 ];
 
 @NgModule({

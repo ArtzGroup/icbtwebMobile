@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -9,9 +10,15 @@ export class SideMenuComponent implements OnInit {
   libraryMenuOpen: boolean = false;
   hamburgerChecked: boolean = false;
   forHoverEffect: boolean = false;
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    if (this.libraryMenuOpen == true) {
+      this.hamburgerChecked = false;
+    }
+  }
+
   minimizeMenu() {
     if (
       this.hamburgerChecked === false ||
@@ -26,26 +33,47 @@ export class SideMenuComponent implements OnInit {
 
   openLibraryMenu() {
     this.hamburgerChecked = true;
-
     this.libraryMenuOpen = true;
   }
 
-  closeMenu() {}
+  gotoDashboard() {
+    this.hamburgerChecked = false;
+    this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
+    this.router.navigate(['/home']);
+  }
 
-  toggleVisibility(e) {
-    const x = e.target.checked;
-    console.log(this.hamburgerChecked);
+  gotoActiveModule() {
+    this.hamburgerChecked = false;
+    this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
+    this.router.navigate(['/activeModule']);
+  }
+
+  gotoMessageSection() {
+    this.hamburgerChecked = false;
+    this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
+  }
+
+  closeMenu() {
+    this.hamburgerChecked = false;
+    this.libraryMenuOpen = false;
+    this.forHoverEffect = false;
   }
 
   mouseEnter() {
-    if (this.forHoverEffect == false) {
+    if (this.forHoverEffect == false && this.hamburgerChecked == true) {
+      this.hamburgerChecked = false;
       this.forHoverEffect = true;
     }
   }
 
   mouseLeave() {
-    if (this.forHoverEffect == true) {
+    if (this.forHoverEffect == true && this.hamburgerChecked == false) {
+      this.hamburgerChecked = true;
       this.forHoverEffect = false;
+      console.log(this.hamburgerChecked);
     }
   }
 }
