@@ -17,9 +17,10 @@
 
   &.libraryMenuOpen {
     width: 20.833vw;
+    min-width: 299px;
     position: fixed;
     top: 0;
-    left: 4.166vw;
+    left: max(56px, 4.166vw);
     transition: 0.1s linear;
   }
 

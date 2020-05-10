@@ -1,1 +1,43 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  .phoneSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .phoneBg {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background: url('../../assets/icons/phone.svg') center center no-repeat;
+
+    }
+  }
+
+  .messageProfileWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .messageSection {
+      display: flex;
+      margin-right: 32px;
+
+      .messageIcon {
+        // position: absolute;
+        width: 24px;
+        height: 24px;
+        background: url('../../assets/icons/message.svg') center center no-repeat;
+
+        &.unreadMessages {
+          background: url('../../assets/icons/newMessage.svg') center center no-repeat;
+        }
+      }
+    }
+
+    .profileSection {}
+  }
+}
