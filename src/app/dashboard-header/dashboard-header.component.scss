@@ -1,7 +1,17 @@
+@import '../../assets/sass/globalClass.scss';
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: max(72px, 6.805vh);
+  transition: position 0.1s linear;
+
+  &.headerPosition {
+    position: absolute;
+    left: max(314px, 21.8vw);
+    transition: position 0.1s linear;
+  }
 
   .phoneSection {
     display: flex;

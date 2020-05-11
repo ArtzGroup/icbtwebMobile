@@ -1,23 +1,21 @@
 <nav class="libraryMenuNav" *ngIf="libraryMenuOpen" [ngClass]="{'libraryMenuOpen': libraryMenuOpen}">
     <h2 class="libraryNavHeader">Library</h2>
-    <section class="wrapper">
 
-        <section class="dropdownSection">
-            <a class="dropdownText" (click)="activeModuleBlockOpen()">
-                <span>1-Welcome to AbilitiCBT</span>
-            </a>
-            <span class="border-bottom"></span>
-            <div class="dropdownBody" [ngClass]="[activeModuleOpen ? 'open' : 'close']">
-                <ul style="background-color: aquamarine;">
-                    <li>one</li>
-                    <li>one</li>
-                    <li>one</li>
-                    <li>one</li>
-                    <li>one</li>
+    <section class="dropdownSection">
+        <a class="dropdownText" (click)="activeModuleBlockOpen()">
+            <span>1-Welcome to AbilitiCBT</span>
+        </a>
+        <span class="border-bottom"></span>
+        <div class="dropdownBody" [ngClass]="[activeModuleOpen ? 'open' : 'close']">
+            <ul style="background-color: aquamarine;">
+                <li>one</li>
+                <li>one</li>
+                <li>one</li>
+                <li>one</li>
+                <li>one</li>
 
-                </ul>
-            </div>
-        </section>
+            </ul>
+        </div>
     </section>
 
 </nav>

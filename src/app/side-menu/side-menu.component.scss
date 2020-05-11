@@ -27,11 +27,16 @@ input[type="checkbox"] {
 
 .menuContentWrapper {
   display: flex;
-
+  width: max(362px, 25.138vw);
+  height: 100vh;
 
   .menuWrapper {
     display: flex;
-    width: auto;
+    width: max(362px, 25.138vw);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
     // max-width: 22.5vw;
 
     &.onMenuHover {
@@ -44,13 +49,17 @@ input[type="checkbox"] {
       +.mainContent {
         position: fixed;
         top: 0;
-        left: 27.499vw;
+        // left: 27.499vw;
       }
     }
 
     .navWrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+
       &.mainMenuMaximize {
-        height: 100vh;
+        height: 100%;
         background-color: #00308f;
         width: 18.333vw;
         min-width: 264px;
@@ -226,6 +235,7 @@ input[type="checkbox"] {
           min-height: 80px;
           z-index: 999;
           position: fixed;
+          top: 0;
           left: max(263.5px, 18.233vw);
           transition: 0.1s linear;
           background: url("../../assets/Anchor.svg");
@@ -234,7 +244,7 @@ input[type="checkbox"] {
       }
 
       &.mainMenuMinimize {
-        height: 100vh;
+        height: 100%;
         background-color: #00308f;
         width: 4.166vw;
         min-width: 56px;
@@ -357,7 +367,8 @@ input[type="checkbox"] {
           width: 48px;
           height: 80px;
           z-index: 999;
-          position: absolute;
+          position: fixed;
+          top: 0;
           left: max(55.5px, 4.066vw);
           background: url("../../assets/Anchor.svg") no-repeat;
         }
@@ -372,14 +383,21 @@ input[type="checkbox"] {
 
 
   .mainContent {
-    position: fixed;
-    left: max(362px, 25.138vw);
+    // position: relative;
+    margin-left: max(362px, 25.138vw);
+    transition: 0.1s linear;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: minmax(72px, 6.805vh) auto;
     grid-template-areas:
       "dashboardHeader"
       "routerOutlet";
+
+    &.mainContentPosition {
+      // position: relative;
+      margin-left: max(404px, 28.469vw);
+      transition: 0.1s linear;
+    }
 
     app-dashboard-header {
       grid-area: dashboardHeader;

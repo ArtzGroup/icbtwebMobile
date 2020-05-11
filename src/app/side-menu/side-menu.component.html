@@ -192,15 +192,15 @@
 
     </section>
 
-    <section class="libraryMenuSection">
-        <app-library-section [libraryMenuOpen]="libraryMenuOpen"></app-library-section>
+    <!-- <section class="libraryMenuSection"></section> -->
 
-    </section>
 
-    <section class="mainContent">
-        <app-dashboard-header></app-dashboard-header>
+    <section class="mainContent" [ngClass]="{'mainContentPosition': libraryMenuOpen}">
+        <app-dashboard-header [forHeaderPosition]="!libraryMenuOpen"></app-dashboard-header>
 
         <router-outlet></router-outlet>
     </section>
 
 </section>
+
+<app-library-section [libraryMenuOpen]="libraryMenuOpen"></app-library-section>

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard-header.component.scss'],
 })
 export class DashboardHeaderComponent implements OnInit {
+  @Input() forHeaderPosition: boolean = false;
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

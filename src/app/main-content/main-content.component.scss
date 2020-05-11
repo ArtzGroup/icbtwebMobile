@@ -3,7 +3,10 @@
 
 
 .mainContentBody {
+  background: url('../../assets/Images/backgroundImages/testimg.svg') no-repeat;
   height: 100%;
+  // Leaving space for header section
+  // min-height: max(calc(100vh - 72px), calc(100vh - 6.805vh));
   transition: 0.1s linear;
   display: grid;
   // grid-template-columns: 3.68vw 28.2vw 22.73vw 4.375vw 18.4vw 2.615vw;
@@ -13,17 +16,15 @@
     ". . . . . ."
     ". . dashboardBgImage dashboardBgImage dashboardBgImage .";
   @include var(background-color, text-color__light);
-  border-top-left-radius: 6% 18%;
+  // border-top-left-radius: 6% 18%;
 
   &.contentMinimize {
-    // width: 95vw;
-    // margin-left: 5vw;
+    // position: fixed;
+    // margin-left: max(361px, 25.069vw);
+    transition: 0.1s linear;
   }
 
-  &.contentMaximize {
-    // width: 80vw;
-    // margin-left: 20vw;
-  }
+  &.contentMaximize {}
 
   .mainBgImage {
     grid-area: dashboardBgImage;

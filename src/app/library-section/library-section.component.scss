@@ -5,14 +5,13 @@
   box-shadow: 1px 1px 5.88636px rgba(0, 0, 0, 0.25);
   border-bottom-right-radius: 120px;
   transition: 0.1s linear;
-  z-index: 1;
+  z-index: -1;
   display: grid;
   grid-template-columns: 1.112vw auto 1.112vw;
   grid-template-rows: 6.805vh 40px auto 6.805vh;
   grid-template-areas:
     ". . ."
     ". libraryNavHeader ."
-    ". libraryMenuItems ."
     ". libraryMenuItems .";
 
   &.libraryMenuOpen {
@@ -28,15 +27,11 @@
     grid-area: libraryNavHeader;
   }
 
-  .wrapper {
-    // display: flex;
-    // flex-direction: column;
 
-    .dropdownSection {
-      grid-area: libraryMenuItems;
+  .dropdownSection {
+    grid-area: libraryMenuItems;
 
-      .dropdownText {}
-    }
+    .dropdownText {}
 
     .dropdownBody {
       width: 100%;
@@ -56,5 +51,7 @@
       }
     }
   }
+
+
 
 }
