@@ -195,12 +195,11 @@
     <!-- <section class="libraryMenuSection"></section> -->
 
 
-    <section class="mainContent" [ngClass]="{'mainContentPosition': libraryMenuOpen}">
+    <!-- <section class="mainContent" [ngClass]="{'mainContentPosition': libraryMenuOpen}">
         <app-dashboard-header [forHeaderPosition]="!libraryMenuOpen"></app-dashboard-header>
 
         <router-outlet></router-outlet>
-    </section>
+    </section> -->
 
+    <app-library-section [libraryMenuOpen]="libraryMenuOpen"></app-library-section>
 </section>
-
-<app-library-section [libraryMenuOpen]="libraryMenuOpen"></app-library-section>
