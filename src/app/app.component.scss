@@ -3,7 +3,7 @@
   grid-template-columns: minmax(362px, 25.138vw) auto 24px;
   grid-template-rows: minmax(72px, 6.805vh) auto;
   grid-template-areas:
-    ". header ."
+    "sideMenu header ."
     "sideMenu routerOutlet .";
 
   app-dashboard-header {

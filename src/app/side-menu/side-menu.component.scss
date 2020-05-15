@@ -54,9 +54,9 @@ input[type="checkbox"] {
     }
 
     .navWrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
+      // position: fixed;
+      // top: 0;
+      // left: 0;
 
       &.mainMenuMaximize {
         height: 100%;
@@ -66,18 +66,18 @@ input[type="checkbox"] {
         transition: 0.1s linear;
         z-index: 999;
         display: grid;
-        grid-template-columns: 1.667vw auto auto 1.667vw;
-        grid-template-rows: 80px auto auto 10px;
+        grid-template-columns: minmax(24px, 1.667vw) auto auto minmax(16px, 1.111vw);
+        grid-template-rows: minmax(103px, 9.735vh) minmax(344px, auto) auto minmax(223px, 21.077vh) minmax(14px, 1.323vh);
         grid-template-areas:
           ". abilitiCBTLogo abilitiCBTLogo ."
-          ". menuItems menuItems menuItems"
-          ". footerItems footerItems .";
+          ". menuItems menuItems ."
+          ". . . ."
+          ". footerItems footerItems ."
+          ". . . .";
 
         .logoSection {
           grid-area: abilitiCBTLogo;
-          margin-top: 2.17vh;
-          display: grid;
-          grid-template-columns: 46px auto;
+          margin-top: max(24px, 1.323vh);
           cursor: pointer;
 
           .showLogo {
@@ -93,9 +93,10 @@ input[type="checkbox"] {
           grid-area: menuItems;
           display: grid;
           grid-template-columns: auto;
-          grid-template-rows: minmax(46px, 6.805vh) minmax(20px, 1.89vh) minmax(46px, 6.805vh) minmax(20px, 1.89vh) auto minmax(20px, 1.89vh) auto;
-          //   grid-template-rows: repeat(7, minmax(20px, auto));
+          grid-template-rows: repeat(7, minmax(24px, 1.667vw));
+          // minmax(24px, 1.667vw) minmax(24px, 1.667vw) minmax(24px, 1.667vw) minmax(24px, 1.667vw) minmax(24px, 1.667vw) minmax(24px, 1.667vw) minmax(24px, 1.667vw);
           grid-gap: 16px;
+          align-items: start;
           grid-template-areas:
             "librarySection"
             "mainMenuLabel"
@@ -110,8 +111,10 @@ input[type="checkbox"] {
             cursor: pointer;
 
             .iconBackground {
-              width: 36px;
-              height: 36px;
+              position: absolute;
+              left: -9px;
+              width: 38px;
+              height: 38px;
               background-color: transparent;
               display: flex;
               align-items: center;
@@ -145,7 +148,6 @@ input[type="checkbox"] {
             color: #E4E5E7;
             font-size: 12px;
             text-transform: uppercase;
-            margin-left: 6px;
           }
 
           .mainMenuLabel {
@@ -161,13 +163,14 @@ input[type="checkbox"] {
           }
 
           .navItemsSections {
+            position: relative;
             display: grid;
-            grid-template-columns: 32px 100px auto 32px;
+            grid-template-columns: minmax(24px, 1.666vh) auto minmax(24px, 1.666vh);
             grid-template-rows: auto;
             cursor: pointer;
             align-items: center;
             grid-template-areas:
-              "menuItemLogo menuItemText menuItemText menuItemRight";
+              "menuItemLogo menuItemText menuItemRight";
 
             label {
               cursor: pointer;
@@ -181,7 +184,7 @@ input[type="checkbox"] {
             .menuItemText {
               grid-area: menuItemText;
               font-size: 16px;
-              margin-left: 20px;
+              margin-left: max(16px, 1.111vw);
             }
 
             .menuItemRight {
@@ -226,6 +229,44 @@ input[type="checkbox"] {
 
         .navFooterItems {
           grid-area: footerItems;
+          display: grid;
+          grid-auto-columns: auto;
+          grid-gap: 16px;
+          grid-template-rows: repeat(3, minmax(19px, 1.795vh)) auto auto;
+          grid-template-areas:
+            "contactSupport"
+            "privacyPolicy"
+            "termsofuse"
+            "googleplayBadge"
+            "appstoreBadge";
+
+          a {
+            @include var(color, text-color__light);
+            cursor: pointer;
+            text-decoration: none;
+          }
+
+          .contactSupport {
+            grid-area: contactSupport;
+          }
+
+          .privacyPolicy {
+            grid-area: privacyPolicy;
+          }
+
+          .termsofuse {
+            grid-area: termsofuse;
+          }
+
+          .googleplayBadge {
+            grid-area: googleplayBadge;
+            background: url('../../assets/googlePlayBadge.svg') no-repeat;
+          }
+
+          .appstoreBadge {
+            grid-area: appstoreBadge;
+            background: url('../../assets/appStoreBadge.svg') no-repeat;
+          }
         }
 
         +.menublock {
@@ -238,7 +279,8 @@ input[type="checkbox"] {
           top: 0;
           left: max(263.5px, 18.233vw);
           transition: 0.1s linear;
-          background: url("../../assets/Anchor.svg");
+          background-size: contain;
+          background: url("../../assets/Anchor.svg") 100% 100% no-repeat;
         }
 
       }
@@ -251,7 +293,7 @@ input[type="checkbox"] {
         z-index: 999;
         transition: 0.1s linear;
         display: grid;
-        grid-template-columns: repeat(3, 1.388vw);
+        grid-template-columns: repeat(3, minmax(18.66px, 1.388vw));
         grid-template-areas:
           "closeImg closeImg closeImg"
           "menuItems menuItems menuItems";

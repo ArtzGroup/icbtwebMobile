@@ -96,9 +96,10 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </span>
-
-
                     <label class="menuItemText">Messages</label>
+                    <span class="menuItemRight">
+                        1
+                    </span>
 
                 </a>
             </nav>
@@ -182,8 +183,12 @@
                 </a>
             </nav>
 
-            <section class="navFooterItems">
-
+            <section *ngIf="!hamburgerChecked" class="navFooterItems">
+                <a href="#" class="contactSupport">Contact Support</a>
+                <a href="#" class="privacyPolicy">Privacy Policy</a>
+                <a href="#" class="termsofuse">Terms of use</a>
+                <a href="#" class="googleplayBadge"></a>
+                <a href="#" class="appstoreBadge"></a>
 
             </section>
         </nav>
